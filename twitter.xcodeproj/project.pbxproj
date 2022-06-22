@@ -18,6 +18,10 @@
 		6AD2790620BCC0380085BC29 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AD2790520BCC0380085BC29 /* LoginViewController.m */; };
 		6AD2790920BCC04D0085BC29 /* TimelineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AD2790820BCC04D0085BC29 /* TimelineViewController.m */; };
 		9830A7202863A02B007BFC17 /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9830A71F2863A02B007BFC17 /* Keys.plist */; };
+		9830A7232863D4C1007BFC17 /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9830A7222863D4C1007BFC17 /* UserModel.m */; };
+		9830A7262863D583007BFC17 /* TweetModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9830A7252863D583007BFC17 /* TweetModel.m */; };
+		98DE91FE2863DA3900C87ECD /* TweetUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 98DE91FD2863DA3900C87ECD /* TweetUtils.m */; };
+		98DE92012863DA5600C87ECD /* UserUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 98DE92002863DA5600C87ECD /* UserUtils.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +45,14 @@
 		6AD2790820BCC04D0085BC29 /* TimelineViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TimelineViewController.m; sourceTree = "<group>"; };
 		75895B6507775E8AFBEEA2D9 /* Pods-twitter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-twitter.debug.xcconfig"; path = "Pods/Target Support Files/Pods-twitter/Pods-twitter.debug.xcconfig"; sourceTree = "<group>"; };
 		9830A71F2863A02B007BFC17 /* Keys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Keys.plist; sourceTree = "<group>"; };
+		9830A7212863D4C1007BFC17 /* UserModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserModel.h; sourceTree = "<group>"; };
+		9830A7222863D4C1007BFC17 /* UserModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserModel.m; sourceTree = "<group>"; };
+		9830A7242863D583007BFC17 /* TweetModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TweetModel.h; sourceTree = "<group>"; };
+		9830A7252863D583007BFC17 /* TweetModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TweetModel.m; sourceTree = "<group>"; };
+		98DE91FC2863DA3900C87ECD /* TweetUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TweetUtils.h; sourceTree = "<group>"; };
+		98DE91FD2863DA3900C87ECD /* TweetUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TweetUtils.m; sourceTree = "<group>"; };
+		98DE91FF2863DA5600C87ECD /* UserUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserUtils.h; sourceTree = "<group>"; };
+		98DE92002863DA5600C87ECD /* UserUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserUtils.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +96,7 @@
 		6AD278D720BC4B950085BC29 /* twitter */ = {
 			isa = PBXGroup;
 			children = (
+				98DE91FB2863DA1D00C87ECD /* Utilities */,
 				9830A71F2863A02B007BFC17 /* Keys.plist */,
 				6AD2790320BCC01B0085BC29 /* View Controllers */,
 				6AD278FF20BCBF280085BC29 /* Views */,
@@ -114,6 +127,10 @@
 		6AD278F820BCBC140085BC29 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				9830A7212863D4C1007BFC17 /* UserModel.h */,
+				9830A7222863D4C1007BFC17 /* UserModel.m */,
+				9830A7242863D583007BFC17 /* TweetModel.h */,
+				9830A7252863D583007BFC17 /* TweetModel.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -143,6 +160,17 @@
 				1397EA94AE1DE5F26C1724FD /* Pods-twitter.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		98DE91FB2863DA1D00C87ECD /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				98DE91FC2863DA3900C87ECD /* TweetUtils.h */,
+				98DE91FD2863DA3900C87ECD /* TweetUtils.m */,
+				98DE91FF2863DA5600C87ECD /* UserUtils.h */,
+				98DE92002863DA5600C87ECD /* UserUtils.m */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -238,11 +266,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				98DE92012863DA5600C87ECD /* UserUtils.m in Sources */,
 				6AD278F320BCA6020085BC29 /* BDBOAuth1SessionManager+SFAuthenticationSession.m in Sources */,
+				9830A7262863D583007BFC17 /* TweetModel.m in Sources */,
 				6AD278E820BC4B970085BC29 /* main.m in Sources */,
+				9830A7232863D4C1007BFC17 /* UserModel.m in Sources */,
 				6AD2790620BCC0380085BC29 /* LoginViewController.m in Sources */,
 				6AD278DA20BC4B950085BC29 /* AppDelegate.m in Sources */,
 				6AD278F620BCB68B0085BC29 /* APIManager.m in Sources */,
+				98DE91FE2863DA3900C87ECD /* TweetUtils.m in Sources */,
 				6AD2790920BCC04D0085BC29 /* TimelineViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
