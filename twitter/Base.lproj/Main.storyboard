@@ -533,13 +533,13 @@
                     <connections>
                         <outlet property="displayName" destination="HSf-Az-zQl" id="GFj-9U-xen"/>
                         <outlet property="favoriteButton" destination="cg0-hx-QWE" id="m2q-wm-xQt"/>
-                        <outlet property="favoriteCount" destination="1GL-jM-Ok2" id="bZd-2M-dW4"/>
+                        <outlet property="favoriteCountLabel" destination="1GL-jM-Ok2" id="Tkc-nw-2rh"/>
                         <outlet property="messageButton" destination="NXb-56-Gtu" id="vcU-ya-ATE"/>
-                        <outlet property="profilePicture" destination="0Rb-Fr-KP8" id="mkg-VO-S0w"/>
+                        <outlet property="profilePictureImage" destination="0Rb-Fr-KP8" id="Nh9-R8-jrI"/>
                         <outlet property="replyButton" destination="aDX-XS-beY" id="Q4I-ew-W7G"/>
-                        <outlet property="replyCount" destination="ctX-er-iPO" id="a02-u8-NX5"/>
+                        <outlet property="replyCountLabel" destination="ctX-er-iPO" id="C3K-Sr-ezT"/>
                         <outlet property="retweetButton" destination="tkL-gr-mkV" id="vKN-j2-Hph"/>
-                        <outlet property="retweetCount" destination="9RQ-V9-cGh" id="7w2-ds-1F5"/>
+                        <outlet property="retweetCountLabel" destination="9RQ-V9-cGh" id="hQ5-4e-OIg"/>
                         <outlet property="tweetContents" destination="7Dl-uZ-5wi" id="rtu-sa-ueE"/>
                         <outlet property="tweetedThisLongAgo" destination="ApY-JL-8uG" id="dGo-zp-GTD"/>
                         <outlet property="userNameAndDate" destination="Pnb-iO-6rE" id="KHO-Hp-5rc"/>
