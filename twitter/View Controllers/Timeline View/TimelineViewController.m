@@ -16,7 +16,7 @@
 #import "ComposeViewController.h"
 #import "TweetDetailsViewController.h"
 
-@interface TimelineViewController () <ComposeViewControllerDelegate, UITableViewDelegate, UITableViewDataSource>
+@interface TimelineViewController () <ComposeViewControllerDelegate, TweetDetailsViewDelegate, UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *timelineTableView;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *timelineRefreshIndicator;
 @end
@@ -95,9 +95,11 @@
          composeController.delegate = self;
      } else if ([sender isKindOfClass:[UITableViewCell class]]) {
          NSIndexPath *cellIndexPath = [self.timelineTableView indexPathForCell:sender];
-         TweetTableViewCell *clickedOn = self.tweetArray[cellIndexPath.row];
-         TweetDetailsViewController *tweetDetailsVC = [segue destinationViewController];
-         // TODO: Pass a list of tweet replies to clickedOn.myTweet (only available with OAuth 2.0 API)
+         TweetModel *clickedOnTweet = self.tweetArray[cellIndexPath.row];
+         UINavigationController *navigationController = [segue destinationViewController];
+         TweetDetailsViewController *tweetDetailsVC = (TweetDetailsViewController *)navigationController.topViewController;
+         tweetDetailsVC.delegate = self;
+         tweetDetailsVC.myTweet = clickedOnTweet;
      }
 }
 

@@ -1,25 +1,39 @@
 //
-//  TweetTableViewCell.m
+//  TweetThreadViewController.m
 //  twitter
 //
-//  Created by maxfierro on 6/22/22.
+//  Created by maxfierro on 6/24/22.
 //  Copyright © 2022 Emerson Malca. All rights reserved.
 //
 
-#import "TweetTableViewCell.h"
 #import "TweetDetailsViewController.h"
 
-@implementation TweetTableViewCell
 
-- (void)awakeFromNib {
-    [super awakeFromNib];
+@interface TweetDetailsViewController ()
+
+@property (weak, nonatomic) IBOutlet UILabel *tweetContents;
+@property (weak, nonatomic) IBOutlet UILabel *userNameAndDate;
+@property (weak, nonatomic) IBOutlet UILabel *tweetedThisLongAgo;
+@property (weak, nonatomic) IBOutlet UILabel *displayName;
+@property (weak, nonatomic) IBOutlet UIImageView *profilePictureImage;
+@property (weak, nonatomic) IBOutlet UIButton *retweetButton;
+@property (weak, nonatomic) IBOutlet UIButton *favoriteButton;
+@property (weak, nonatomic) IBOutlet UIButton *replyButton;
+@property (weak, nonatomic) IBOutlet UIButton *messageButton;
+@property (weak, nonatomic) IBOutlet UILabel *replyCountLabel;
+@property (weak, nonatomic) IBOutlet UILabel *retweetCountLabel;
+@property (weak, nonatomic) IBOutlet UILabel *favoriteCountLabel;
+
+@end
+
+@implementation TweetDetailsViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    [self refreshViewUI];
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-}
-
-- (void)refreshCellUI {
+- (void)refreshViewUI {
     UserModel *myAuthor = self.myTweet.authorUserModel;
     
     NSString *imageURLString = self.myTweet.authorUserModel.profilePictureURLString;
@@ -52,12 +66,8 @@
     }
 }
 
-- (IBAction)didTapMessage:(id)sender {
-    [self refreshCellUI];
-}
-
 - (IBAction)didTapReply:(id)sender {
-    [self refreshCellUI];
+    [self refreshViewUI];
 }
 
 - (IBAction)didTapRetweet:(id)sender {
@@ -88,7 +98,7 @@
         self.myTweet.isRetweeted = YES;
         self.myTweet.retweetCount = [TweetUtils sumIntToNSNumber:self.myTweet.retweetCount integer:1];
     }
-    [self refreshCellUI];
+    [self refreshViewUI];
 }
 
 - (IBAction)didTapFavorite:(id)sender {
@@ -119,7 +129,25 @@
         self.myTweet.isFavorited = YES;
         self.myTweet.favoriteCount = [TweetUtils sumIntToNSNumber:self.myTweet.favoriteCount integer:1];
     }
-    [self refreshCellUI];
+    [self refreshViewUI];
 }
+
+- (IBAction)didTapClose:(id)sender {
+    [self dismissViewControllerAnimated:true completion:nil];
+}
+
+- (IBAction)didTapMessage:(id)sender {
+    [self refreshViewUI];
+}
+
+/*
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
 
 @end

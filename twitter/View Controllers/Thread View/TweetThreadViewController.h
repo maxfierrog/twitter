@@ -12,7 +12,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface TweetDetailsViewController : UIViewController
+@interface TweetThreadViewController : UIViewController
 @property (weak, nonatomic) NSArray *tweetReplyArray;
 @property (weak, nonatomic) TweetModel *myTweet;
 @end

@@ -225,6 +225,7 @@
                                             <outlet property="retweetCountLabel" destination="mwD-Wo-s33" id="pDg-V7-SM0"/>
                                             <outlet property="tweetContents" destination="jRy-yK-cms" id="PI5-TC-Sca"/>
                                             <outlet property="userNameAndDate" destination="NW1-8k-HbN" id="doQ-GL-Xmx"/>
+                                            <segue destination="Rqu-fG-i0f" kind="show" id="hJC-lJ-hEH"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -248,7 +249,6 @@
                     <connections>
                         <outlet property="timelineRefreshIndicator" destination="taf-w9-RkG" id="WfC-mN-8Oz"/>
                         <outlet property="timelineTableView" destination="S05-iH-Rbh" id="OPr-uQ-ft8"/>
-                        <segue destination="Rqu-fG-i0f" kind="show" id="VmB-fk-JN2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oQh-hN-GQg" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -340,7 +340,7 @@
         <!--Thread-->
         <scene sceneID="c5U-3z-flc">
             <objects>
-                <viewController id="YPK-QJ-mKB" customClass="TweetDetailsViewController" sceneMemberID="viewController">
+                <viewController id="YPK-QJ-mKB" customClass="TweetThreadViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6Id-xl-En1">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -378,17 +378,17 @@
         <!--Tweet Details-->
         <scene sceneID="T6y-cg-jjL">
             <objects>
-                <viewController id="XUI-ny-9rV" sceneMemberID="viewController">
+                <viewController id="XUI-ny-9rV" customClass="TweetDetailsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="V6k-SU-NNY">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Rb-Fr-KP8">
-                                <rect key="frame" x="16" y="88" width="66" height="66"/>
+                                <rect key="frame" x="11" y="103" width="66" height="66"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HSf-Az-zQl">
-                                <rect key="frame" x="90" y="88" width="264" height="21"/>
+                                <rect key="frame" x="85" y="103" width="264" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <attributedString key="attributedText">
                                     <fragment content="displayname">
@@ -401,34 +401,34 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NXb-56-Gtu">
-                                <rect key="frame" x="23" y="289" width="40" height="40"/>
+                                <rect key="frame" x="18" y="304" width="40" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" image="message-icon"/>
                                 <connections>
-                                    <action selector="didTapMessage:" destination="yWm-qq-oht" eventType="touchUpInside" id="kZV-LR-i9D"/>
+                                    <action selector="didTapMessage:" destination="XUI-ny-9rV" eventType="touchUpInside" id="Dd9-KN-ns8"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cg0-hx-QWE">
-                                <rect key="frame" x="12" y="241" width="40" height="40"/>
+                                <rect key="frame" x="7" y="256" width="40" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" image="favor-icon"/>
                                 <connections>
-                                    <action selector="didTapFavorite:" destination="yWm-qq-oht" eventType="touchUpInside" id="2jQ-iS-eTc"/>
+                                    <action selector="didTapFavorite:" destination="XUI-ny-9rV" eventType="touchUpInside" id="G4H-dU-u3J"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tkL-gr-mkV">
-                                <rect key="frame" x="12" y="196" width="40" height="40"/>
+                                <rect key="frame" x="7" y="211" width="40" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="" image="retweet-icon"/>
                                 <connections>
-                                    <action selector="didTapRetweet:" destination="yWm-qq-oht" eventType="touchUpInside" id="rhy-jF-Yu0"/>
+                                    <action selector="didTapRetweet:" destination="XUI-ny-9rV" eventType="touchUpInside" id="ne4-pN-zdh"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9RQ-V9-cGh">
-                                <rect key="frame" x="52" y="206" width="49" height="21"/>
+                                <rect key="frame" x="47" y="221" width="49" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" systemColor="systemGray6Color"/>
                                 <attributedString key="attributedText">
@@ -442,7 +442,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1GL-jM-Ok2">
-                                <rect key="frame" x="52" y="251" width="49" height="21"/>
+                                <rect key="frame" x="47" y="266" width="49" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" systemColor="systemGray6Color"/>
                                 <attributedString key="attributedText">
@@ -456,16 +456,16 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aDX-XS-beY">
-                                <rect key="frame" x="12" y="155" width="40" height="40"/>
+                                <rect key="frame" x="7" y="170" width="40" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" image="reply-icon"/>
                                 <connections>
-                                    <action selector="didTapReply:" destination="yWm-qq-oht" eventType="touchUpInside" id="TA3-Nh-3L7"/>
+                                    <action selector="didTapReply:" destination="XUI-ny-9rV" eventType="touchUpInside" id="m7M-TX-36t"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ctX-er-iPO">
-                                <rect key="frame" x="52" y="165" width="49" height="21"/>
+                                <rect key="frame" x="47" y="180" width="49" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" systemColor="systemGray6Color"/>
                                 <attributedString key="attributedText">
@@ -479,7 +479,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Dl-uZ-5wi">
-                                <rect key="frame" x="90" y="155" width="264" height="554"/>
+                                <rect key="frame" x="85" y="180" width="264" height="544"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <attributedString key="attributedText">
                                     <fragment content="tweet contents">
@@ -492,8 +492,22 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ApY-JL-8uG">
+                                <rect key="frame" x="85" y="148" width="61" height="12"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="how long ago">
+                                        <attributes>
+                                            <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            <font key="NSFont" size="10" name="Geneva"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pnb-iO-6rE">
-                                <rect key="frame" x="90" y="111" width="264" height="21"/>
+                                <rect key="frame" x="85" y="126" width="264" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <attributedString key="attributedText">
                                     <fragment content="username - date">
@@ -509,7 +523,27 @@
                         <viewLayoutGuide key="safeArea" id="Stm-x2-Dxq"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Tweet Details" id="si6-CU-D2h"/>
+                    <navigationItem key="navigationItem" title="Tweet Details" id="si6-CU-D2h">
+                        <barButtonItem key="leftBarButtonItem" image="close-icon" id="zYv-fa-q9b">
+                            <connections>
+                                <action selector="didTapClose:" destination="XUI-ny-9rV" id="A8U-ko-LpS"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="displayName" destination="HSf-Az-zQl" id="GFj-9U-xen"/>
+                        <outlet property="favoriteButton" destination="cg0-hx-QWE" id="m2q-wm-xQt"/>
+                        <outlet property="favoriteCount" destination="1GL-jM-Ok2" id="bZd-2M-dW4"/>
+                        <outlet property="messageButton" destination="NXb-56-Gtu" id="vcU-ya-ATE"/>
+                        <outlet property="profilePicture" destination="0Rb-Fr-KP8" id="mkg-VO-S0w"/>
+                        <outlet property="replyButton" destination="aDX-XS-beY" id="Q4I-ew-W7G"/>
+                        <outlet property="replyCount" destination="ctX-er-iPO" id="a02-u8-NX5"/>
+                        <outlet property="retweetButton" destination="tkL-gr-mkV" id="vKN-j2-Hph"/>
+                        <outlet property="retweetCount" destination="9RQ-V9-cGh" id="7w2-ds-1F5"/>
+                        <outlet property="tweetContents" destination="7Dl-uZ-5wi" id="rtu-sa-ueE"/>
+                        <outlet property="tweetedThisLongAgo" destination="ApY-JL-8uG" id="dGo-zp-GTD"/>
+                        <outlet property="userNameAndDate" destination="Pnb-iO-6rE" id="KHO-Hp-5rc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="85t-K5-ZgJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

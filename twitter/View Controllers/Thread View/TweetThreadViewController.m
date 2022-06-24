@@ -6,15 +6,15 @@
 //  Copyright © 2022 Emerson Malca. All rights reserved.
 //
 
-#import "TweetDetailsViewController.h"
+#import "TweetThreadViewController.h"
 #import "TweetTableViewCell.h"
 #import "TweetModel.h"
 
-@interface TweetDetailsViewController () <UITableViewDelegate, UITableViewDataSource>
+@interface TweetThreadViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tweetRepliesTableView;
 @end
 
-@implementation TweetDetailsViewController
+@implementation TweetThreadViewController
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.tweetRepliesTableView.delegate = self;
