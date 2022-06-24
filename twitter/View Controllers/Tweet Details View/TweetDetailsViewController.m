@@ -30,7 +30,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     TweetTableViewCell *tweetCell = [tableView dequeueReusableCellWithIdentifier:@"TweetReplyTableViewCell"];
     tweetCell.myTweet = self.tweetReplyArray[indexPath.row];
-    [tweetCell refreshUI];
+    [tweetCell refreshCellUI];
     return tweetCell;
 }
 

@@ -18,7 +18,7 @@
     [super setSelected:selected animated:animated];
 }
 
-- (void)refreshUI {
+- (void)refreshCellUI {
     UserModel *myAuthor = self.myTweet.authorUserModel;
     
     NSString *imageURLString = self.myTweet.authorUserModel.profilePictureURLString;
@@ -29,18 +29,40 @@
     self.profilePictureImage.image = [UIImage imageWithData:imageData];
     self.displayName.text = self.myTweet.authorUserModel.userName;
     self.tweetContents.text = self.myTweet.textContent;
-    self.replyButton.titleLabel.text = [self.myTweet.replyCount stringValue];
-    self.likeButton.titleLabel.text = [self.myTweet.favoriteCount stringValue];
-    self.retweetButton.titleLabel.text = [self.myTweet.retweetCount stringValue];
-    self.messageButton.titleLabel.text = nil;
     
+    self.replyCountLabel.text = [self.myTweet.replyCount stringValue];
+    self.favoriteCountLabel.text = [self.myTweet.favoriteCount stringValue];
+    self.retweetCountLabel.text = [self.myTweet.retweetCount stringValue];
+
     self.userNameAndDate.textColor = [UIColor lightGrayColor];
     self.profilePictureImage.layer.cornerRadius = self.profilePictureImage.frame.size.width / 2;
     self.profilePictureImage.clipsToBounds = YES;
+    
+//    self.replyButton.titleLabel.text = nil;
+//    self.retweetButton.titleLabel.text = nil;
+//    self.messageButton.titleLabel.text = nil;
+//    self.favoriteButton.titleLabel.text = nil;
+    
+    if (self.myTweet.isRetweeted) {
+        [self.retweetButton setImage:[UIImage imageNamed:@"retweet-icon-green"] forState:UIControlStateNormal];
+    } else {
+        [self.retweetButton setImage:[UIImage imageNamed:@"retweet-icon"] forState:UIControlStateNormal];
+    }
+    
+    if (self.myTweet.isFavorited) {
+        [self.favoriteButton setImage:[UIImage imageNamed:@"favor-icon-red"] forState:UIControlStateNormal];
+    } else {
+        [self.favoriteButton setImage:[UIImage imageNamed:@"favor-icon"] forState:UIControlStateNormal];
+    }
+    
+}
+
+- (IBAction)didTapMessage:(id)sender {
+    [self refreshCellUI];
 }
 
 - (IBAction)didTapReply:(id)sender {
-    [self refreshUI];
+    [self refreshCellUI];
 }
 
 - (IBAction)didTapRetweet:(id)sender {
@@ -71,7 +93,7 @@
         self.myTweet.isRetweeted = YES;
         self.myTweet.retweetCount = [TweetUtils sumIntToNSNumber:self.myTweet.retweetCount integer:1];
     }
-    [self refreshUI];
+    [self refreshCellUI];
 }
 
 - (IBAction)didTapFavorite:(id)sender {
@@ -102,7 +124,7 @@
         self.myTweet.isFavorited = YES;
         self.myTweet.favoriteCount = [TweetUtils sumIntToNSNumber:self.myTweet.favoriteCount integer:1];
     }
-    [self refreshUI];
+    [self refreshCellUI];
 }
 
 @end

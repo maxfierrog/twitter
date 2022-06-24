@@ -82,7 +82,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     TweetTableViewCell *tweetCell = [tableView dequeueReusableCellWithIdentifier:@"TweetTableViewCell"];
     tweetCell.myTweet = self.tweetArray[indexPath.row];
-    [tweetCell refreshUI];
+    [tweetCell refreshCellUI];
     return tweetCell;
 }
 
