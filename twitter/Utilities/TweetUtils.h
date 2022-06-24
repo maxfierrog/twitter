@@ -7,14 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "UIImageView+AFNetworking.h"
+#import "TweetModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface TweetUtils : NSObject
-
 + (NSString *)formatToShortDate:(NSString *)unformattedDate;
-+ (NSArray *)getTweetsFromDictArray:(NSArray *)tweetDictionaryArray;
-
++ (NSArray *)dictArrayToTweetArray:(NSArray *)tweetDictionaryArray;
++ (NSNumber *)sumIntToNSNumber:(NSNumber *)number integer:(int)integer;
 @end
 
 NS_ASSUME_NONNULL_END

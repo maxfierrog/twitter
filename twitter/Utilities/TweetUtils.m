@@ -7,7 +7,6 @@
 //
 
 #import "TweetUtils.h"
-#import "TweetModel.h"
 
 @implementation TweetUtils
 
@@ -21,8 +20,8 @@
     return [formatter stringFromDate:date];
 }
 
-+ (NSArray *)getTweetsFromDictArray:(NSArray *)tweetDictionaryArray {
-    NSMutableArray *tweetArray;
++ (NSArray *)dictArrayToTweetArray:(NSArray *)tweetDictionaryArray {
+    NSMutableArray *tweetArray = [[NSMutableArray alloc] init];
     for (NSDictionary *tweetDictionary in tweetDictionaryArray) {
         TweetModel *currentTweet = [[TweetModel alloc] initWithDictionary:tweetDictionary];
         if (currentTweet != nil) {
@@ -32,6 +31,8 @@
     return tweetArray;
 }
 
-
++ (NSNumber *)sumIntToNSNumber:(NSNumber *)number integer:(int)integer {
+    return [NSNumber numberWithInt:[number intValue] + integer];
+}
 
 @end

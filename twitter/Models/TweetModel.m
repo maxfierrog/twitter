@@ -23,10 +23,11 @@
         }
         self.idString = tweetDictionary[@"id_str"];
         self.textContent = tweetDictionary[@"text"];
-        self.favoriteCount = [tweetDictionary[@"favorite_count"] intValue];
-        self.isFavorited = [tweetDictionary[@"favorited"] boolValue];
-        self.retweetCount = [tweetDictionary[@"retweet_count"] intValue];
+        self.favoriteCount = tweetDictionary[@"favorite_count"];
+        self.retweetCount = tweetDictionary[@"retweet_count"];
+        self.replyCount = tweetDictionary[@"reply_count"];
         self.isRetweeted = [tweetDictionary[@"retweeted"] boolValue];
+        self.isFavorited = [tweetDictionary[@"favorited"] boolValue];
         self.authorUserModel = [[UserModel alloc] initWithDictionary:tweetDictionary[@"user"]];
         self.dateCreatedString = [TweetUtils formatToShortDate:tweetDictionary[@"created_at"]];
     }
