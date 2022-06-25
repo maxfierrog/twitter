@@ -10,7 +10,6 @@
 
 @interface TimelineViewController () <ComposeViewControllerDelegate, UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *timelineTableView;
-@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *timelineRefreshIndicator;
 @end
 
 @implementation TimelineViewController
@@ -19,8 +18,6 @@
     [super viewDidLoad];
     self.timelineTableView.delegate = self;
     self.timelineTableView.dataSource = self;
-    [self.timelineRefreshIndicator hidesWhenStopped];
-    [self.timelineRefreshIndicator startAnimating];
     [ViewControllerUtils getRefreshControl:self refreshSelector:@selector(doRefresh:) UIView:self.timelineTableView];
     [[APIManager shared] getHomeTimelineWithCompletion:^(NSArray *tweets, NSError *error) {
         if (error) {
@@ -32,7 +29,6 @@
         } else if (tweets == nil && error == nil) {
             NSLog(@"No tweets available.");
         }
-        [self.timelineRefreshIndicator stopAnimating];
     }];
 }
 
@@ -60,7 +56,7 @@
 
 - (void)didTweet:(TweetModel *)tweet {
     [self.tweetArray addObject:tweet];
-    [self viewDidLoad];
+    [self.timelineTableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning {
