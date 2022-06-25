@@ -23,6 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString *dateCreatedString;
 @property (nonatomic, strong) NSString *idString;
 @property (nonatomic, strong) NSString *textContent;
+@property (nonatomic, strong) NSDate *dateCreated;
 
 - (instancetype)initWithDictionary:(NSDictionary *)tweetDictionary;
 

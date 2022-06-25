@@ -7,6 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "APIManager.h"
+#import "AppDelegate.h"
+#import "LoginViewController.h"
+#import "UIImageView+AFNetworking.h"
+#import "TweetTableViewCell.h"
+#import "ViewControllerUtils.h"
+#import "ComposeViewController.h"
+#import "TweetDetailsViewController.h"
 
 @interface TimelineViewController : UIViewController
 @property NSMutableArray *tweetArray;

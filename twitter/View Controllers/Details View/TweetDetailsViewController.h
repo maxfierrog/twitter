@@ -9,10 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "TweetModel.h"
 #import "APIManager.h"
+#import "DateTools.h"
+#import "TimelineViewController.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @protocol TweetDetailsViewDelegate
+- (void)closedTweetDetailView;
 @end
 
 @interface TweetDetailsViewController : UIViewController

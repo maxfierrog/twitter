@@ -16,6 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSString *)formatToShortDate:(NSString *)unformattedDate;
 + (NSArray *)dictArrayToTweetArray:(NSArray *)tweetDictionaryArray;
 + (NSNumber *)sumIntToNSNumber:(NSNumber *)number integer:(int)integer;
++ (NSDate *)formatToDate:(NSString *)unformattedDate;
 @end
 
 NS_ASSUME_NONNULL_END

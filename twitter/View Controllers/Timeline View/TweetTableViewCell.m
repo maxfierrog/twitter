@@ -9,6 +9,9 @@
 #import "TweetTableViewCell.h"
 #import "TweetDetailsViewController.h"
 
+@interface TweetTableViewCell () <TweetDetailsViewDelegate>
+@end
+
 @implementation TweetTableViewCell
 
 - (void)awakeFromNib {
@@ -30,11 +33,13 @@
     self.profilePictureImage.image = [UIImage imageWithData:imageData];
     self.displayName.text = self.myTweet.authorUserModel.userName;
     self.tweetContents.text = self.myTweet.textContent;
+    self.tweetedThisLongAgo.text = [self.myTweet.dateCreated timeAgoSinceNow];
     
     self.replyCountLabel.text = [self.myTweet.replyCount stringValue];
     self.favoriteCountLabel.text = [self.myTweet.favoriteCount stringValue];
     self.retweetCountLabel.text = [self.myTweet.retweetCount stringValue];
 
+    self.tweetedThisLongAgo.textColor = [UIColor lightGrayColor];
     self.userNameAndDate.textColor = [UIColor lightGrayColor];
     self.profilePictureImage.layer.cornerRadius = self.profilePictureImage.frame.size.width / 2;
     self.profilePictureImage.clipsToBounds = YES;
@@ -50,6 +55,10 @@
     } else {
         [self.favoriteButton setImage:[UIImage imageNamed:@"favor-icon"] forState:UIControlStateNormal];
     }
+}
+
+- (void)closedTweetDetailView {
+    [self refreshCellUI];
 }
 
 - (IBAction)didTapMessage:(id)sender {

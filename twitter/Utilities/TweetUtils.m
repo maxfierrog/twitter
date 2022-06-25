@@ -20,6 +20,13 @@
     return [formatter stringFromDate:date];
 }
 
++ (NSDate *)formatToDate:(NSString *)unformattedDate {
+    NSString *createdAtOriginalString = unformattedDate;
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    formatter.dateFormat = @"E MMM d HH:mm:ss Z y";
+    return [formatter dateFromString:createdAtOriginalString];
+}
+
 + (NSArray *)dictArrayToTweetArray:(NSArray *)tweetDictionaryArray {
     NSMutableArray *tweetArray = [[NSMutableArray alloc] init];
     for (NSDictionary *tweetDictionary in tweetDictionaryArray) {

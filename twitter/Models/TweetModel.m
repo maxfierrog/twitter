@@ -25,11 +25,12 @@
         self.textContent = tweetDictionary[@"text"];
         self.favoriteCount = tweetDictionary[@"favorite_count"];
         self.retweetCount = tweetDictionary[@"retweet_count"];
-        self.replyCount = tweetDictionary[@"reply_count"];
+        self.replyCount = tweetDictionary[@"reply_count"]; // Do not have access with basic API
         self.isRetweeted = [tweetDictionary[@"retweeted"] boolValue];
         self.isFavorited = [tweetDictionary[@"favorited"] boolValue];
         self.authorUserModel = [[UserModel alloc] initWithDictionary:tweetDictionary[@"user"]];
         self.dateCreatedString = [TweetUtils formatToShortDate:tweetDictionary[@"created_at"]];
+        self.dateCreated = [TweetUtils formatToDate:tweetDictionary[@"created_at"]];
     }
     return self;
 }

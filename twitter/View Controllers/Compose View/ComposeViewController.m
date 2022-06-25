@@ -22,14 +22,17 @@
 }
 
 - (IBAction)didTapPostTweet:(id)sender {
+    UIAlertController *failedSend = [ViewControllerUtils getNetworkingAlertController:@"Error sending tweet, please try again" action:^{}];
     [[APIManager shared] postStatusWithText:self.tweetTextView.text completion:^(TweetModel *sentTweet, NSError *error) {
         if (error) {
             NSLog(@"Error composing Tweet: %@", error.localizedDescription);
+            [self presentViewController:failedSend animated:YES completion:^{}];
         } else {
-            [self.delegate didTweet:sentTweet];
             NSLog(@"Compose Tweet Success!");
+            [self dismissViewControllerAnimated:true completion:^{
+                [self.delegate didTweet:sentTweet];
+            }];
         }
-        [self dismissViewControllerAnimated:true completion:nil];
     }];
 }
 

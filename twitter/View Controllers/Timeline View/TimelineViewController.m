@@ -7,16 +7,8 @@
 //
 
 #import "TimelineViewController.h"
-#import "APIManager.h"
-#import "AppDelegate.h"
-#import "LoginViewController.h"
-#import "UIImageView+AFNetworking.h"
-#import "TweetTableViewCell.h"
-#import "ViewControllerUtils.h"
-#import "ComposeViewController.h"
-#import "TweetDetailsViewController.h"
 
-@interface TimelineViewController () <ComposeViewControllerDelegate, TweetDetailsViewDelegate, UITableViewDelegate, UITableViewDataSource>
+@interface TimelineViewController () <ComposeViewControllerDelegate, UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *timelineTableView;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *timelineRefreshIndicator;
 @end
@@ -68,7 +60,7 @@
 
 - (void)didTweet:(TweetModel *)tweet {
     [self.tweetArray addObject:tweet];
-    [self.timelineTableView reloadData];
+    [self viewDidLoad];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -89,7 +81,7 @@
 #pragma mark - Navigation
 
  - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-     if ([sender isKindOfClass:[UIButton class]]) {
+     if ([sender isKindOfClass:[UIBarButtonItem class]]) {
          UINavigationController *navigationController = [segue destinationViewController];
          ComposeViewController *composeController = (ComposeViewController *)navigationController.topViewController;
          composeController.delegate = self;
@@ -98,7 +90,7 @@
          TweetModel *clickedOnTweet = self.tweetArray[cellIndexPath.row];
          UINavigationController *navigationController = [segue destinationViewController];
          TweetDetailsViewController *tweetDetailsVC = (TweetDetailsViewController *)navigationController.topViewController;
-         tweetDetailsVC.delegate = self;
+         tweetDetailsVC.delegate = sender;
          tweetDetailsVC.myTweet = clickedOnTweet;
      }
 }
