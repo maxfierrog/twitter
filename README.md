@@ -1,14 +1,10 @@
 # Project 2 - Twitter
 
-Twitter is a basic twitter app to read and compose tweets the [Twitter API](https://apps.twitter.com/).
-
-Time spent: 18 hours spent in total
+Twitter is a basic app to read and compose tweets using the [Twitter API](https://apps.twitter.com/).
 
 ## User Stories
 
 The following **core** features are completed:
-
-**A user should**
 
 - [X] See an app icon in the home screen and a styled launch screen
 - [X] Be able to log in using their Twitter account
@@ -20,12 +16,10 @@ The following **core** features are completed:
 - [X] Compose and post a tweet from a Compose Tweet view, launched from a Compose button on the Nav bar.
 - [X] See Tweet details in a Details view
 - [X] App should render consistently all views and subviews in recent iPhone models and all orientations
-
-The following **stretch** features are implemented:
-
-**A user could**
-
 - [X] Be able to **unlike** or **un-retweet** by tapping a liked or retweeted Tweet button, respectively. (Doing so will decrement the count for each)
+
+Here are some things I might do in the future:
+
 - [ ] Click on links that appear in Tweets
 - [ ] See embedded media in Tweets that contain images or videos
 - [ ] Reply to any Tweet (**2 points**)
@@ -39,35 +33,10 @@ The following **stretch** features are implemented:
 - [ ] Switch between **timeline**, **mentions**, or **profile view** through a tab bar (**3 points**)
 - [ ] Profile Page: pulling down the profile page should blur and resize the header image. (**4 points**)
 
-Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
-
-1. It would be nice to have a retweet thread view, but I believe that needs API v2, which requires OAuth 2.0, which I do not know how to use.
-2. I would like to know how to set Auto Layout programmatically.
-
 ## Video Walkthrough
-
-Here's a walkthrough of implemented user stories:
 
 https://user-images.githubusercontent.com/69845191/175765099-0588f93e-ca9a-4fce-9ccb-ca2364db0b4b.mp4
 
 ## Credits
 
-List an 3rd party libraries, icons, graphics, or other assets you used in your app.
-
 - [AFNetworking](https://github.com/AFNetworking/AFNetworking) - networking task library
-
-## License
-
-    Copyright [yyyy] [name of copyright owner]
-
-    Licensed under the Apache License, Version 2.0 (the "License");
-    you may not use this file except in compliance with the License.
-    You may obtain a copy of the License at
-
-        http://www.apache.org/licenses/LICENSE-2.0
-
-    Unless required by applicable law or agreed to in writing, software
-    distributed under the License is distributed on an "AS IS" BASIS,
-    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-    See the License for the specific language governing permissions and
-    limitations under the License.
