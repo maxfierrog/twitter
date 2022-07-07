@@ -1,10 +1,10 @@
-# Project 2 - Twitter
+# Twitter
 
-Twitter is a basic app to read and compose tweets using the [Twitter API](https://apps.twitter.com/).
+Twitter is a basic app to read and compose tweets using the [Twitter API](https://apps.twitter.com/), in addition to other basic functions such as retweeting and favoriting through a half decent UI.
 
 ## User Stories
 
-The following **core** features are completed:
+The following **core** features were implemented:
 
 - [X] See an app icon in the home screen and a styled launch screen
 - [X] Be able to log in using their Twitter account
